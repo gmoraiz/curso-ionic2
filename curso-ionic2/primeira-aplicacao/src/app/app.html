@@ -1,1 +1,42 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<!-- Criarei o menu neste escopo. Lembrando que o menu será um nó irmão do ion nav
+     que é a tela principal da nossa aplicação onde ficará todo o contéudo. -->
+<ion-menu [content]="menuContent">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <!-- Aqui modifica-se o escopo do menu após aberto: o seu contéudo.
+       Colocarei os itens que irão abrir uma nova página. Para isso,
+       será utilizado o *ngFor para fazer um looping nas páginas que
+       serão declaradas em um array de páginas. Este loop trará o nome
+       de todos os itens do nosso menu. Ele está definido no app.ts. -->
+  <ion-content>
+    <ion-list>
+      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon name={{p.icon}}></ion-icon>
+        {{p.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<!-- Provando que da para usar mais de um menu -->
+<ion-menu [content]="menuContent" side="right" type="push">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <p ion-item>Usando</p>
+      <p ion-item>Dois</p>
+      <p ion-item>Menus</p>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<!-- Adicionarei a váriavel menuContent para referenciar a parte principal da aplicação
+     à sua irmã menu, atráves do uso do bind [content]-->
+<ion-nav #menuContent [root]="rootPage"></ion-nav>
