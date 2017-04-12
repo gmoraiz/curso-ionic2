@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { SobrePage } from '../pages/sobre/sobre';
+import { EnderecoPage } from '../pages/endereco/endereco';
 
 @Component({
   templateUrl: 'app.html'
@@ -17,7 +18,8 @@ export class MyApp {
     // definindo os itens do menu.
     this.pages = [
       {component: HomePage, title: 'Home', icon: 'home'},
-      {component: SobrePage, title: 'Sobre', icon: 'at'}
+      {component: SobrePage, title: 'Sobre', icon: 'at'},
+      {component: EnderecoPage, title: 'Endereço', icon: 'address'}
     ];
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
